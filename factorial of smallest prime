@@ -1,0 +1,27 @@
+/factorial value of smallest prime
+#include<stdio.h>
+int main(){
+	int arr[]={20,6,101,8,59,11,13,10,17,99};
+	int len=sizeof(arr)/sizeof(int);
+	int flag,i,j,n,small=0,f=1;
+	
+	for(i=0;i<len;i++){
+		n=arr[i];
+		flag=0;
+		for(j=2;j<n/2;j++){ // finding n is prime or not
+			if((n%j)==0){flag=1;break;}
+		}
+		if(flag==0){
+			if(small==0)small=n;
+			printf("%d ",n);
+			if(n<small)small=n;
+		}
+	}
+	printf("\nSmallest = %d",small);
+	while(small>0){
+		f=f*small;
+		small--;
+	}
+	printf("\nFactorial = %d",f);
+	return 0;
+}
